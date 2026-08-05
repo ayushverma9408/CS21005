@@ -58,7 +58,7 @@ void checkPassword(char pass[])
 
 int main()
 {
-    char pass[50];
+    char pass[100];
 
     printf("Enter Password: ");
     fgets(pass, sizeof(pass), stdin);
