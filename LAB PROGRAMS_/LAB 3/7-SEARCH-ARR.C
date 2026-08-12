@@ -3,7 +3,7 @@ Write a function to search an array using a comparison function pointer. The sig
 */
 #include <stdio.h>
 
-int compareInt(void *a, void *b)
+int compare(void *a, void *b)
 {
     if (*(int *)a == *(int *)b)
         return 1;
@@ -18,7 +18,7 @@ int Search(void *array, int n, void *key, int size)
 
     for (i = 0; i < n; i++)
     {
-        if (compareInt(arr + i * size, key))
+        if (compare(arr + i * size, key))
             return i;
     }
 
@@ -27,10 +27,21 @@ int Search(void *array, int n, void *key, int size)
 
 int main()
 {
-    int arr[] = {10, 20, 30, 40, 50};
-    int key = 30;
+    int arr[100];
+    int n, key, i, index;
 
-    int index = Search(arr, 5, &key, sizeof(int));
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    printf("Enter element to search: ");
+    scanf("%d", &key);
+
+    index = Search(arr, n, &key, sizeof(int));
 
     if (index != -1)
         printf("Element found at index %d", index);
