@@ -5,10 +5,12 @@ Write a recursive function to implement x^n in O(logn) time complexity.
 
 long long power(int x, int n)
 {
+    long long temp;
+
     if (n == 0)
         return 1;
 
-    long long temp = power(x, n / 2);
+    temp = power(x, n / 2);
 
     if (n % 2 == 0)
         return temp * temp;
@@ -20,8 +22,11 @@ int main()
 {
     int x, n;
 
-    printf("Enter x and n: ");
-    scanf("%d %d", &x, &n);
+    printf("Enter x: ");
+    scanf("%d", &x);
+
+    printf("Enter n: ");
+    scanf("%d", &n);
 
     printf("%d^%d = %lld", x, n, power(x, n));
 
