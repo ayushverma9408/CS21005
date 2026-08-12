@@ -14,10 +14,7 @@ void Reverse(void *array, int n, int size)
         for (j = 0; j < size; j++)
         {
             temp = arr[i * size + j];
-
-            arr[i * size + j] =
-                arr[(n - 1 - i) * size + j];
-
+            arr[i * size + j] = arr[(n - 1 - i) * size + j];
             arr[(n - 1 - i) * size + j] = temp;
         }
     }
@@ -25,13 +22,22 @@ void Reverse(void *array, int n, int size)
 
 int main()
 {
-    int arr[] = {10, 20, 30, 40, 50};
+    int arr[100];
+    int n, i;
 
-    Reverse(arr, 5, sizeof(int));
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-    printf("Reversed array: ");
+    printf("Enter elements:\n");
 
-    for (int i = 0; i < 5; i++)
+    for (i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    Reverse(arr, n, sizeof(int));
+
+    printf("Reversed array:\n");
+
+    for (i = 0; i < n; i++)
         printf("%d ", arr[i]);
 
     return 0;
