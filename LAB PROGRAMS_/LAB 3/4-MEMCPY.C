@@ -11,17 +11,17 @@ void memcopy(void *p, void *q, int size)
     int i;
 
     for (i = 0; i < size; i++)
-    {
         a[i] = b[i];
-    }
 }
 
 int main()
 {
-    char source[] = "Hello";
-    char destination[20];
+    char source[100], destination[100];
 
-    memcopy(destination, source, 6);
+    printf("Enter a string: ");
+    scanf("%s", source);
+
+    memcopy(destination, source, sizeof(source));
 
     printf("Copied string: %s", destination);
 
